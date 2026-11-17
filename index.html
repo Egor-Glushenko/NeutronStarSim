@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#04060d">
+<title>Нейтронная звезда — интерактивная симуляция</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='8' fill='%23a8c8ff'/%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%238ab4ff' stroke-opacity='.5'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<canvas id="sky" aria-label="Визуализация нейтронной звезды"></canvas>
+
+<aside id="panel" aria-label="Панель управления">
+  <header id="phead">
+    <div class="ttl">
+      <strong>Нейтронная звезда</strong>
+      <span>интерактивная модель</span>
+    </div>
+    <button id="btnCollapse" class="icon" title="Свернуть панель (H)" aria-label="Свернуть панель">&#9664;</button>
+  </header>
+  <div id="controls"></div>
+  <footer id="pfoot">
+    <button id="btnPause" class="act" data-act="pause">Пауза</button>
+    <button id="btnBoom" class="act boom" data-act="boom" title="Взрыв сверхновой (E)">Взрыв</button>
+    <button id="btnShot" class="act" data-act="shot">Снимок</button>
+    <button id="btnReset" class="act" data-act="reset">Сброс</button>
+  </footer>
+</aside>
+<button id="fab" title="Показать панель (H)" aria-label="Показать панель">&#9776;</button>
+
+<section id="hud" aria-label="Расчётные величины">
+  <div class="hudtitle"><span>Данные модели</span><span id="status" class="run">&#9679; идёт</span></div>
+  <div id="hudRows" class="rows"></div>
+</section>
+
+<section id="pulseCard">
+  <div class="cap"><span>Импульсный профиль</span><span id="pulseRate">—</span></div>
+  <canvas id="pulse" width="320" height="104"></canvas>
+</section>
+
+<div id="badge"><b id="badgeType">—</b><span id="badgeInfo"></span></div>
+
+<div id="hint">Тяните мышью — камера · Колесо — зум · Пробел — пауза · H — панель · M — звук</div>
+
+<div id="veil" hidden>
+  <div class="veilbox">
+    <h2>WebGL недоступен</h2>
+    <p>Браузер не дал контекст WebGL. Включите аппаратное ускорение в настройках браузера
+    или откройте файл в Chrome / Edge / Firefox.</p>
+  </div>
+</div>
+
+<script src="js/shaders.js"></script>
+<script src="js/glx.js"></script>
+<script src="js/physics.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
